@@ -15,12 +15,15 @@ const isOdd = function (number) {
 
 const removeBalancedParentheses = function (expression) {
   const parenthesesPosition = expression.indexOf('()');
+  if (parenthesesPosition === -1) {
+    return expression;
+  }
   const firstPart = expression.substring(0, parenthesesPosition);
   const lastPart = expression.substring(parenthesesPosition + 2);
   return firstPart + lastPart;
 };
 
-const parenthesesChecker = function (expression) {
+const areParenthesesBalanced = function (expression) {
   if (isOdd(expression.length)) {
     return false;
   }
@@ -35,4 +38,4 @@ const parenthesesChecker = function (expression) {
   return true;
 };
 
-exports.check = parenthesesChecker;
+exports.check = areParenthesesBalanced;
